@@ -10,7 +10,8 @@
 
 namespace Engine {
 	/*  @param img 滑鼠碰到的圖
-		@param imgIn 平常的圖  */
+		@param imgIn 平常的圖  
+		其他和普通物件一樣 */
 	ImageButton::ImageButton(std::string img, std::string imgIn, float x, float y, float w, float h, float anchorX, float anchorY) :
 		Image(img, x, y, w, h, anchorX, anchorY), imgOut(Resources::GetInstance().GetBitmap(img)), imgIn(Resources::GetInstance().GetBitmap(imgIn)) {
 		Point mouse = GameEngine::GetInstance().GetMousePosition();
@@ -28,6 +29,7 @@ namespace Engine {
 				OnClickCallback();
 		}
 	}
+	// 判斷要顯示進還出
 	void ImageButton::OnMouseMove(int mx, int my) {
 		mouseIn = Collider::IsPointInBitmap(Point((mx - Position.x) * GetBitmapWidth() / Size.x + Anchor.x * GetBitmapWidth(), (my - Position.y) * GetBitmapHeight() / Size.y + Anchor.y * GetBitmapHeight()), bmp);
 		if (!mouseIn || !Enabled) bmp = imgOut;

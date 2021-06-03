@@ -21,6 +21,7 @@ namespace Engine {
 	Group::~Group() {
 		Clear();
 	}
+	// 根據所有IObj和ICon的迭代器刪掉東西，再把頭刪掉?
 	void Group::Clear() {
 		for (auto& it : objects) {
 			if (it.first) delete it.second;

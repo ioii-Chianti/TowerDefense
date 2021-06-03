@@ -1,6 +1,7 @@
 #include <allegro5/allegro.h>
 #include "IScene.hpp"
 
+// 給任何場景使用的 base
 namespace Engine {
 	void IScene::Terminate() {
 		Clear();

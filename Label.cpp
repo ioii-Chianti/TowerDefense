@@ -7,6 +7,7 @@
 #include "Resources.hpp"
 
 namespace Engine {
+	// 把建構子的參數丟到各自的物件裡
 	Label::Label(const std::string& text, const std::string& font, int fontSize, float x, float y, unsigned char r, unsigned char g, unsigned char b, unsigned char a, float anchorX, float anchorY) :
 		IObject(x, y, 0, 0, anchorX, anchorY), font(Resources::GetInstance().GetFont(font, fontSize)), Text(text), Color(al_map_rgba(r, g, b, a)) {
 	}
