@@ -4,7 +4,7 @@
 #include "Turret.hpp"
 #include "HungryEnemy.hpp"
 
-HungryEnemy::HungryEnemy(int x, int y) : Enemy("play/enemy-4.png", x, y, 15, 20, 50, 20) {}
+HungryEnemy::HungryEnemy(int x, int y) : Enemy("play/enemy-4.png", x, y, 20, 20, 50, 20) {}
 void HungryEnemy::Hit(float damage) {
 	if (damage == 3)
 		Velocity.x = Velocity.x >= 120 ? 120 : Velocity.x + 10;

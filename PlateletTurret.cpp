@@ -13,7 +13,7 @@
 
 const int PlateletTurret::Price = 50;
 PlateletTurret::PlateletTurret(float x, float y) :
-	Turret("play/turret-2.png", x, y, 20, 50, Price, 0.5) {
+	Turret("play/turret-2.png", x, y, 30, 50, Price, 0.5) {
 	// Move center downward, since we the turret head is slightly biased upward.
 	Anchor.y += 8.0f / GetBitmapHeight();
 }

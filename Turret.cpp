@@ -50,7 +50,7 @@ void Turret::Hit(float damage) {
 		//const int x = Position.x / PlayScene::BlockSize;
 		//const int y = Position.y / PlayScene::BlockSize;
 		//PlayScene *scene = getPlayScene();
-		//scene->mapState[y][x] = PlayScene::TILE_FREE;
+		//scene->mapState[x][y] = PlayScene::TILE_FLOOR;
 	}
 }
 
