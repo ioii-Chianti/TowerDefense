@@ -43,12 +43,6 @@ void Turret::Hit(float damage) {
 	hp -= damage;
 	if (hp <= 0) {
 		OnExplode();
-		std::cout << "TURRET DIE\n";
-		// ??? 複製敵人target
-		// for (auto& it: lockedEnemies)
-		// 	it->Target = nullptr;
-		// for (auto& it: lockedEnemyBullets)
-		// 	it->Target = nullptr;
 		getPlayScene()->TowerGroup->RemoveObject(objectIterator);
 		AudioHelper::PlayAudio("explosion.wav");
 
@@ -56,7 +50,7 @@ void Turret::Hit(float damage) {
 		//const int x = Position.x / PlayScene::BlockSize;
 		//const int y = Position.y / PlayScene::BlockSize;
 		//PlayScene *scene = getPlayScene();
-		//scene->mapState[y][x] = PlayScene::TILE_FLOOR;
+		//scene->mapState[y][x] = PlayScene::TILE_FREE;
 	}
 }
 

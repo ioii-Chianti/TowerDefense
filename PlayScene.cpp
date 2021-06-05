@@ -36,6 +36,7 @@
 #include "TurretButton.hpp"
 #include "LOG.hpp"
 #include "LoseScene.hpp"
+#include "Collider.hpp"
 
 
 bool PlayScene::DebugMode = false;
@@ -217,7 +218,7 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 	const int x = mx / BlockSize;
 	const int y = my / BlockSize;
 	if (button & 1) {
-		if (mapState[y][x] != TILE_OCCUPIED) {
+		if (mapState[y][x] != TILE_OCCUPIED && preview && preview->GetPrice() != 0) {
 			if (!preview)
 				return;
 			// Check if valid.
@@ -246,6 +247,18 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 
 			mapState[y][x] = TILE_OCCUPIED;
 			OnMouseMove(mx, my);
+		}
+		else if (mapState[y][x] == TILE_OCCUPIED && preview->GetPrice() == 0) {
+			for (auto& it : TowerGroup->GetObjects()) {
+				Turret* turret = dynamic_cast<Turret*>(it);
+				//if (!turret->Visible)
+				//	continue;
+				// 炸彈和塔重疊
+				if (Engine::Collider::IsCircleOverlap(preview->Position, 20, turret->Position, 50)) {
+					turret->Hit(1000);
+					mapState[y][x] = TILE_FLOOR;
+				}
+			}
 		}
 	}
 }
