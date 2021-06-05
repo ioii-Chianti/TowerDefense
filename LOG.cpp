@@ -3,8 +3,8 @@
 #include "LOG.hpp"
 
 namespace Engine {
-	bool LOG::Enabled = false;
-	bool LOG::LogVerbose = false;
+	bool LOG::Enabled = true;
+	bool LOG::LogVerbose = true;
 	const char* LOG::FilePath = "log.txt";
 
 	LOG::LOG(LogType type) {

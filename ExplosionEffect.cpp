@@ -14,7 +14,7 @@ PlayScene* ExplosionEffect::getPlayScene() {
 ExplosionEffect::ExplosionEffect(float x, float y) : Sprite("play/explosion-1.png", x, y), timeTicks(0) {
 	for (int i = 1; i <= 5; i++) {
 		bmps.push_back(Engine::Resources::GetInstance().GetBitmap("play/explosion-" + std::to_string(i) + ".png"));
-	}
+	}   // 拿到這張圖?
 }
 void ExplosionEffect::Update(float deltaTime) {
 	timeTicks += deltaTime;

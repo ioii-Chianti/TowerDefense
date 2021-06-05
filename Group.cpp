@@ -1,6 +1,6 @@
 #include <stdexcept>
 #include <utility>
-
+#include <iostream>
 #include "Group.hpp"
 #include "IControl.hpp"
 #include "IObject.hpp"
@@ -32,6 +32,7 @@ namespace Engine {
 		}
 		controls.clear();
 	}
+
 	void Group::Update(float deltaTime) {
 		for (auto it = objects.begin(); it != objects.end();) {
 			auto preIt = it++;

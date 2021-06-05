@@ -12,7 +12,7 @@
 
 const int ErythrocyteTurret::Price = 50;
 ErythrocyteTurret::ErythrocyteTurret(float x, float y) :
-	Turret("play/turret-3.png", x, y, Price, 0.5) {
+	Turret("play/turret-3.png", x, y, 15, 100, Price, 2) {
 	// Move center downward, since we the turret head is slightly biased upward.
 	Anchor.y += 8.0f / GetBitmapHeight();
 }

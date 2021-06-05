@@ -20,11 +20,6 @@ namespace Engine {
 
 class PlayScene final : public Engine::IScene {
 private:
-	enum TileType {
-		TILE_DIRT,
-		TILE_FLOOR,
-		TILE_OCCUPIED,
-	};
 	ALLEGRO_SAMPLE_ID bgmId;
 	std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> deathBGMInstance;
 protected:
@@ -32,6 +27,11 @@ protected:
 	int money;
 	int SpeedMult;
 public:
+	enum TileType {
+		TILE_DIRT,
+		TILE_FLOOR,
+		TILE_OCCUPIED,
+	};
 	static bool DebugMode;
 	static const std::vector<Engine::Point> directions;
 	static const int MapWidth, MapHeight;
@@ -48,6 +48,7 @@ public:
 	Group* GroundEffectGroup;
 	Group* DebugIndicatorGroup;
 	Group* BulletGroup;
+	Group* EnemyBulletGroup;
 	Group* TowerGroup;
 	Group* EnemyGroup;
 	Group* EffectGroup;
@@ -57,7 +58,7 @@ public:
 	Engine::Image* imgTarget;
 	Engine::Sprite* dangerIndicator;
 	Turret* preview;
-	std::vector<std::vector<TileType>> mapState;
+	std::vector<std::vector<TileType>> mapState;   // ®æ¤lª¬ºA
 	std::vector<int> laneNum;
 	std::list<std::tuple<int, float,int>> enemyWaveData;
 	std::list<int> keyStrokes;
@@ -80,6 +81,6 @@ public:
 	void UIBtnClicked(int id);
 	bool CheckSpaceValid(int x, int y);
 	std::vector<std::vector<int>> CalculateBFSDistance();
-	// void ModifyReadMapTiles();
+	void ModifyReadMapTiles();
 };
 #endif // PLAYSCENE_HPP

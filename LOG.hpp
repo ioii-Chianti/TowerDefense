@@ -24,9 +24,7 @@ namespace Engine {
 		static bool LogVerbose;
 		// The file path of the log file.
 		static const char* FilePath;
-		/// <summary>
 		/// Get the label from log type.
-		/// </summary>
 		/// <param name="type">Log type of a log instance.</param>
 		/// <returns>Returns the string label of the type.</returns>
 		static const char* getLabel(LogType type);

@@ -10,6 +10,7 @@
 #include "SettingScene.hpp"
 #include "WinScene.hpp"
 #include "Start_Scene.hpp"
+#include <iostream>
 
 int main(int argc, char **argv) {
 	Engine::LOG::SetConfig(true);

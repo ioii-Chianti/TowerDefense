@@ -11,9 +11,9 @@
 
 class Turret;
 
+// 雞腿可以緩速敵人
 ChickenBullet::ChickenBullet(Engine::Point position, Engine::Point forwardDirection, float rotation, Turret* parent) :
-	Bullet("play/bullet-6.png", 500, 1, position, forwardDirection, rotation - ALLEGRO_PI / 2, parent) {
-	// TODO 2 (1/8): You can imitate the 2 files: 'FireBullet.hpp', 'FireBullet.cpp' to create a new bullet.
+	Bullet("play/bullet-6.png", 200, 2, position, forwardDirection, rotation - ALLEGRO_PI / 2, parent) {
 }
 void ChickenBullet::OnExplode(Enemy* enemy) {
 	std::random_device dev;

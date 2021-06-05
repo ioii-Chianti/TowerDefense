@@ -53,6 +53,6 @@ void StageSelectScene::PlayOnClick(int stage) {
 	Engine::GameEngine::GetInstance().ChangeScene("play");
 }
 void StageSelectScene::SettingOnClick(int stage) {
-	SettingScene* scene = dynamic_cast<SettingScene*>(Engine::GameEngine::GetInstance().GetScene("setting"));
+	//SettingScene* scene = dynamic_cast<SettingScene*>(Engine::GameEngine::GetInstance().GetScene("setting"));
 	Engine::GameEngine::GetInstance().ChangeScene("setting");
 }

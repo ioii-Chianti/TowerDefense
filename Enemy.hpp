@@ -17,14 +17,19 @@ protected:
 	float speed;
 	float hp;
 	int money;
+	float coolDown;
+	float reload = 0;
+	//std::list<Enemy*>::iterator lockedEnemyIterator;
 	PlayScene* getPlayScene();
 	virtual void OnExplode();
+	virtual void CreateBullet();
 public:
 	float reachEndTime;
+	//Turret *Target = nullptr;
 	std::list<Turret*> lockedTurrets;
 	std::list<Bullet*> lockedBullets;
-	Enemy(std::string img, float x, float y, float radius, float speed, float hp, int money );
- 	void Hit(float damage);
+	Enemy(std::string img, float x, float y, float radius, float speed, float hp, int money);
+ 	virtual void Hit(float damage);
 	void Update(float deltaTime) override;
 	void Draw() const override;
 };
