@@ -138,6 +138,7 @@ void PlayScene::Update(float deltaTime) {
 	if (SpeedMult == 0)
 		deathCountDown = -1;
 	for (int i = 0; i < SpeedMult; i++) {
+		// line95的deltaTime內，又多跑很多次這行，Update了很多次
 	    IScene::Update(deltaTime);
 		// Check if we should create new enemy.
 		ticks += deltaTime;
@@ -149,8 +150,10 @@ void PlayScene::Update(float deltaTime) {
 			continue;
 		}
 		auto current = enemyWaveData.front();
+		// 少於延遲時間還不能發兵，再重跑回圈一次
 		if (ticks < std::get<1>(current))   //change
 			continue;
+		// 大於延遲時間可以發兵，扣掉延遲時間後發出 (pop)
 		ticks -= std::get<1>(current);
 		enemyWaveData.pop_front();
         std::random_device dev;
